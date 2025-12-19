@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Nana 💗</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      /* Mengganti ke font sans-serif yang bersih dan modern */
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    body{
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4e1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .card{
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      text-align: center;
+      width: 330px;
+      box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3);
+      animation: pop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes pop{
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    marquee{
+      color: #ff69b4;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    h1{
+      color: #ff4f9a;
+      margin: 10px 0;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    p{
+      color: #666;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    button{
+      padding: 12px 25px;
+      border: none;
+      border-radius: 50px;
+      background: #ff69b4;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    }
+
+    button:hover{
+      background: #ff1493;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+    }
+
+    .heart-fly {
+      position: absolute;
+      color: #ff69b4;
+      font-size: 20px;
+      pointer-events: none;
+      animation: float 3s linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes float{
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <marquee behavior="scroll" direction="left">Semangat terus ya naaa! makasii udah selalu ngisi waktu kosong ku💗</marquee>
+  <h1>hallo sayaang! ✨</h1>
+  <p>cuma mau bilang terus semangat yaa nana, maksih yaa udah respon baik terus sama akuu yang imutt inii!</p>
+  <button onclick="createHeart()">klik buat nanaa💗</button>
+</div>
+
+<script>
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart-fly');
+    heart.innerHTML = '💗';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.bottom = '-5vh';
+    heart.style.fontSize = Math.random() * 10 + 20 + 'px';
+    
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 3000);
+  }
+  
+  // Munculkan hati secara otomatis setiap 1 detik
+  setInterval(createHeart, 1000);
+</script>
+
+</body>
+</html>
